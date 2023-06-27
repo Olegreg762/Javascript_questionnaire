@@ -1,0 +1,42 @@
+:root{
+    color:  aquamarine;
+}
+
+a{
+    text-decoration: none;
+    color: aquamarine;
+}
+
+body{
+    background-color: black;
+}
+
+.container{
+    position: relative;
+}
+
+.timer{
+    position: absolute;
+    top: 10;
+    right: 20;
+    font-size: large;
+}
+
+.scores{
+    position: absolute;
+    top: 10;
+    left: 0;
+    font-size: large;
+    
+}
+
+
+.test{
+    margin-top: 8%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,-10%);
+    text-align: center;
+    font-size: 40pt;
+}
