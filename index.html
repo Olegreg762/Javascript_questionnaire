@@ -8,11 +8,24 @@
 <body>
     <header>
         <section class="container">
-            <h1 class="test">JavaScript Questionnaire!</h1>
+            <h1 class="head">JavaScript Questionnaire!</h1>
+            <button id="start" onclick="start()">START</button>
             <h2 class="timer">Time <span id="counter">60</span></h2>
-            <h2 class="scores"><a href="placeholder">View High Scores</a> </h2>
+            <button class="scores">View High Scores</button>
         </section>
     </header>
+    <section>
+        <quiz_card class="test_card">
+            <h2 id="questions">Q's go here</h2>
+            <ul>
+                <button type="button"> <span id="a">Answer A</span></button><br><br>
+                <button type="button"> <span id="b">Answer B</span></button><br><br>
+                <button type="button"> <span id="c">Answer C</span></button><br><br>
+                <button type="button"> <span id="d">Answer D</span></button><br><br>
+            </ul>
+            <p><span id="right_or_wrong"></span></p>
+        </quiz_card>
+    </section>
         
     
     <script src="./assets/js/script.js"></script>
