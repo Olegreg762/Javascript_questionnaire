@@ -11,7 +11,7 @@
             <h1 class="head">JavaScript Questionnaire!</h1>
             <button id="start" onclick="start()">START</button>
             <h2 class="timer">Time <span id="counter">60</span></h2>
-            <button class="scores">View High Scores</button>
+            <button id="scores" onclick="show_scores()">View High Scores</button>
         </section>
     </header>
     <section>
@@ -25,6 +25,13 @@
             </ul>
             <p><span id="right_or_wrong"></span></p>
         </quiz_card>
+        <score_card class="score_card">
+            <ol>
+                <li id="1st"></li><br>
+                <li id="2nd"></li><br>
+                <li id="3rd"></li><br>
+            </ol>
+        </score_card>
     </section>
         
     

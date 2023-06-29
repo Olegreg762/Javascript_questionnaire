@@ -22,7 +22,7 @@ body{
     font-size: large;
 }
 
-.scores{
+#scores{
     color: aquamarine;
     background: none;
     border: none;
@@ -33,7 +33,7 @@ body{
     
 }
 
-.scores:hover{
+#scores:hover{
     background: none;
 }
 
@@ -61,7 +61,7 @@ body{
 .test_card{
     display: none;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 40%;
@@ -72,6 +72,21 @@ body{
     #questions{
         text-align: center;}
    
+}
+
+.score_card{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+    height: 25%;
+    background-color: blueviolet;
+    border-radius: 10%;
+    border: 10pt solid hotpink;
+    #scores{
+        text-align: center;}
 }
 
 button{
