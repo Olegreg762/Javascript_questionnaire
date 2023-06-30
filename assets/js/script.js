@@ -1,11 +1,33 @@
-let correct = 5;
-let score = (correct/5)*100 + "%";
+let correct = 0;
+let score = (correct/5)*100;
 let intials = "gg";
-let score_board = {
-    first:"",
-    second:"",
-    third:""
-};
+let score_board = [
+    {
+      name: "GJS",
+      score: 20
+    },
+    {
+      name: "MJG",
+      score: 40
+    },
+    {
+      name: "GMS",
+      score: 60
+    }
+  ];
+  
+  score_board.sort((a, b) => b.score - a.score);
+  
+  let initial= "grey";
+  
+  if(score>score_board[score_board.length- 1].score){
+  score_board.pop();
+  score_board.push({name: initial, score: score})
+  score_board.sort((a, b) => b.score - a.score);
+  }
+  
+  
+  
 let time = 60;
 let timing;
 
@@ -52,9 +74,9 @@ let question_set4 = {
 let question_array=[question_set,question_set1,question_set2,question_set3,question_set4];
 
 // Variable for score_card
-let first_place = document.getElementById("1st").textContent = score_board.first
-let second_place = document.getElementById("2nd").textContent = score_board.second
-let third_place = document.getElementById("3rd").textContent = score_board.third
+let first_place = document.getElementById("1st").textContent = `${score_board[0].name}  ${score_board[0].score}`
+let second_place = document.getElementById("2nd").textContent = `${score_board[1].name}  ${score_board[1].score}`
+let third_place = document.getElementById("3rd").textContent = `${score_board[2].name}  ${score_board[2].score}`
 
 function start(){
     document.getElementById("start").textContent = "RESTART";
