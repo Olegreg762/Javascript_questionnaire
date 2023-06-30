@@ -56,6 +56,7 @@ let second_place = document.getElementById("2nd").textContent = "ff"
 let third_place = document.getElementById("3rd").textContent = "dd"
 
 function start(){
+    document.getElementById("start").textContent = "RESTART";
     let start_quiz = document.querySelector(".test_card");
         start_quiz.style.display = "block";
     let hide_score = document.querySelector('.score_card')
@@ -94,6 +95,7 @@ function start(){
 };
 
 function show_scores(){
+    document.getElementById("start").textContent = "START";
     let score_stats = document.querySelector(".score_card");
         score_stats.style.display = "block";
     time = 60;
