@@ -1,7 +1,14 @@
-let correct = 0;
-let wrong = 0;
-let score = (correct/6)*100 + "%";
-let intials = "";
+let correct = 5;
+let score = (correct/5)*100 + "%";
+let intials = "gg";
+let score_board = {
+    first:"",
+    second:"",
+    third:""
+};
+let time = 60;
+let timing;
+
 let question_set = {    
     question: "How does a WHILE Loop begin",
     a: "while i = 1 to 10",
@@ -44,16 +51,10 @@ let question_set4 = {
 };
 let question_array=[question_set,question_set1,question_set2,question_set3,question_set4];
 
-
-let time = 60;
-let timing;
-
-
-
 // Variable for score_card
-let first_place = document.getElementById("1st").textContent = "gg"
-let second_place = document.getElementById("2nd").textContent = "ff"
-let third_place = document.getElementById("3rd").textContent = "dd"
+let first_place = document.getElementById("1st").textContent = score_board.first
+let second_place = document.getElementById("2nd").textContent = score_board.second
+let third_place = document.getElementById("3rd").textContent = score_board.third
 
 function start(){
     document.getElementById("start").textContent = "RESTART";
