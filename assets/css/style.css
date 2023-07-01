@@ -89,6 +89,21 @@ body{
         text-align: center;}
 }
 
+.name_card{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+    height: 25%;
+    background-color: blueviolet;
+    border-radius: 10%;
+    border: 10pt solid hotpink;
+    #name_entry{
+        text-align: center;}
+}
+
 button{
     background-color: tomato;
     color: black;

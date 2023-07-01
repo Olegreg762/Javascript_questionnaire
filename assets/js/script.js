@@ -1,6 +1,8 @@
-let correct = 0;
+let time = 60;
+let timing;
+let correct = 5;
 let score = (correct/5)*100;
-let intials = "gg";
+let initial = "";
 let score_board = [
     {
       name: "GJS",
@@ -16,21 +18,6 @@ let score_board = [
     }
   ];
   
-  score_board.sort((a, b) => b.score - a.score);
-  
-  let initial= "grey";
-  
-  if(score>score_board[score_board.length- 1].score){
-  score_board.pop();
-  score_board.push({name: initial, score: score})
-  score_board.sort((a, b) => b.score - a.score);
-  }
-  
-  
-  
-let time = 60;
-let timing;
-
 let question_set = {    
     question: "How does a WHILE Loop begin",
     a: "while i = 1 to 10",
@@ -73,10 +60,20 @@ let question_set4 = {
 };
 let question_array=[question_set,question_set1,question_set2,question_set3,question_set4];
 
+// Sorts score_board in descending order
+// score_board.sort((a, b) => b.score - a.score); 
+// // IF statement that adds the name and score IF is greater than last of the score_board index
+// if(score>score_board[score_board.length- 1].score){
+// score_board.pop();
+// score_board.push({name: initial, score: score})
+// score_board.sort((a, b) => b.score - a.score);
+// }
+
+
 // Variable for score_card
-let first_place = document.getElementById("1st").textContent = `${score_board[0].name}  ${score_board[0].score}`
-let second_place = document.getElementById("2nd").textContent = `${score_board[1].name}  ${score_board[1].score}`
-let third_place = document.getElementById("3rd").textContent = `${score_board[2].name}  ${score_board[2].score}`
+let first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
+let second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
+let third_place = document.getElementById("3rd").textContent = `Name:${score_board[2].name}  Score:${score_board[2].score}`
 
 function start(){
     document.getElementById("start").textContent = "RESTART";
@@ -84,6 +81,8 @@ function start(){
         start_quiz.style.display = "block";
     let hide_score = document.querySelector('.score_card')
         hide_score.style.display = "none";
+    let name_entry_show = document.querySelector('.name_card')
+        name_entry_show.style.display = "none";
 
 
         // Variables for test_card
@@ -98,17 +97,18 @@ function start(){
         
 
     function count_down(){
-        time = 60;  
+        time = 1;  
         counter = document.getElementById("counter");
         clearInterval(timing)
         timing = setInterval(() => {
             
             counter.textContent = time;
             time--;
-            if(time < -1){
+            if(time < 0){
                 clearInterval(timing);
                 alert(`TIMES UP!\nYour Score: ${score}` )
-                show_scores()
+                // show_scores()
+                show_name_entry()
             }
         },1000);
     } 
@@ -124,6 +124,8 @@ function show_scores(){
     time = 60;
     let hide_start = document.querySelector('.test_card')
         hide_start.style.display = "none";
+    let name_entry_show = document.querySelector('.name_card')
+        name_entry_show.style.display = "none";
     counter = document.getElementById("counter");
     counter.textContent = time;
     clearInterval(timing);
@@ -131,6 +133,43 @@ function show_scores(){
     
 };
 
+function show_name_entry(){
+    let hide_start = document.querySelector(".test_card");
+        hide_start.style.display = "none";
+    let hide_score = document.querySelector('.score_card')
+        hide_score.style.display = "none";
+    let name_entry_show = document.querySelector('.name_card')
+        name_entry_show.style.display = "block";
+        first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
+        second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
+        third_place = document.getElementById("3rd").textContent = `Name:${score_board[2].name}  Score:${score_board[2].score}`
 
+};
 
+function submit_name_score(){
+    let hide_score = document.querySelector('.score_card')
+        hide_score.style.display = "block";
+    let name_entry_show = document.querySelector('.name_card')
+        name_entry_show.style.display = "none";
+    let initial = document.getElementById("name_entry").value;
+    console.log(initial, score);
+        sort_board(initial)
+        
+};
+
+function sort_board(name_input){
+    // let initial = document.getElementById("name_entry").value;
+    score_board.sort((a, b) => b.score - a.score); 
+    // IF statement that adds the name and score IF is greater than last of the score_board index
+    if(score>score_board[score_board.length- 1].score){
+        score_board.pop();
+        score_board.push({name: name_input, score: score})
+        score_board.sort((a, b) => b.score - a.score);
+    }
+    first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
+    second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
+    third_place = document.getElementById("3rd").textContent = `Name:${score_board[2].name}  Score:${score_board[2].score}`
+
+        return score_board
+}
 
