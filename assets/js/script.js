@@ -1,8 +1,8 @@
 let time = 60;
 let timing;
-let correct = "";
+let correct = 0
 let answered_qs= 0;
-let score = (correct/5)*100;
+let score = 0;
 let initial = "";
 let answer_a = "";
 let answer_b = "";
@@ -79,7 +79,6 @@ function start(){
     let name_entry_show = document.querySelector('.name_card')
         name_entry_show.style.display = "none";
 
-
         // Variables for test_card
         question_array.sort(()=>0.5 - Math.random());
         answered_qs= 0;
@@ -101,9 +100,7 @@ function start(){
             }
         },1000);
     } 
-    count_down();  
-    
-    
+    count_down();     
 };
 
 function show_scores(){
@@ -117,9 +114,7 @@ function show_scores(){
         name_entry_show.style.display = "none";
     counter = document.getElementById("counter");
     counter.textContent = time;
-    clearInterval(timing);
-
-    
+    clearInterval(timing); 
 };
 
 function show_name_entry(){
@@ -129,20 +124,19 @@ function show_name_entry(){
         hide_score.style.display = "none";
     let name_entry_show = document.querySelector('.name_card')
         name_entry_show.style.display = "block";
-        first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
-        second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
-        third_place = document.getElementById("3rd").textContent = `Name:${score_board[2].name}  Score:${score_board[2].score}`
-    
+    counter = document.getElementById("counter");
+    counter.textContent = time;
+    clearInterval(timing)
 
 };
 
-function submit_name_score(score){
+function submit_name_score(){
     let hide_score = document.querySelector('.score_card')
         hide_score.style.display = "block";
     let name_entry_show = document.querySelector('.name_card')
         name_entry_show.style.display = "none";
     let initial = document.getElementById("name_entry").value;
-    console.log(initial, score);
+    console.log(`${initial}initial, ${score}score, ${correct}correct`);
         sort_board(initial)
         
 };
@@ -162,19 +156,9 @@ function sort_board(name_input){
 
         return score_board
 }
-    
-
 
 function quiz(answer){
-        
-    q_display = document.getElementById("questions").textContent = question_array[0].question;
-    answer_a = document.getElementById("a").textContent = question_array[0].a;
-    answer_b = document.getElementById("b").textContent = question_array[0].b;
-    answer_c = document.getElementById("c").textContent = question_array[0].c;
-    answer_d = document.getElementById("d").textContent = question_array[0].d;
-    right_or_wrong = document.getElementById("right_or_wrong");
-    
-    if(answer == question_array[0].answer){
+    if(answer == question_array[answered_qs].answer){
         right_or_wrong.textContent= "Correct";
         correct++;
         answered_qs++;
@@ -184,17 +168,20 @@ function quiz(answer){
         right_or_wrong.textContent= "Wrong";
         answered_qs++;
     };
-    console.log(question_array.length)
     if(answered_qs == question_array.length){
         update_correct(correct);
         show_name_entry();
-    }
-
-    
-
+    } else{
+        q_display = document.getElementById("questions").textContent = question_array[answered_qs].question;
+        answer_a = document.getElementById("a").textContent = question_array[answered_qs].a;
+        answer_b = document.getElementById("b").textContent = question_array[answered_qs].b;
+        answer_c = document.getElementById("c").textContent = question_array[answered_qs].c;
+        answer_d = document.getElementById("d").textContent = question_array[answered_qs].d;
+        right_or_wrong = document.getElementById("right_or_wrong");
+    };
 };
     
-function update_correct(new_correct){
-    correct = new_correct;
+function update_correct(update){
+    correct = update;
+    score = (correct/5)*100;
 };
-console.log(correct);
