@@ -178,13 +178,11 @@ function quiz(answer){
         right_or_wrong.textContent= "Correct";
         correct++;
         answered_qs++;
-        console.log(correct, answered_qs);
     } else if (answer === undefined) {
         right_or_wrong.textContent= "";
     }else{
         right_or_wrong.textContent= "Wrong";
         answered_qs++;
-        console.log(answered_qs);
     };
     console.log(question_array.length)
     if(answered_qs == question_array.length){
