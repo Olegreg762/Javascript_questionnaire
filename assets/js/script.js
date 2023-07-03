@@ -1,8 +1,13 @@
 let time = 60;
 let timing;
-let correct = 5;
+let correct = "";
+let answered_qs= 0;
 let score = (correct/5)*100;
 let initial = "";
+let answer_a = "";
+let answer_b = "";
+let answer_c = "";
+let answer_d = "";
 let score_board = [
     {
       name: "GJS",
@@ -60,16 +65,6 @@ let question_set4 = {
 };
 let question_array=[question_set,question_set1,question_set2,question_set3,question_set4];
 
-// Sorts score_board in descending order
-// score_board.sort((a, b) => b.score - a.score); 
-// // IF statement that adds the name and score IF is greater than last of the score_board index
-// if(score>score_board[score_board.length- 1].score){
-// score_board.pop();
-// score_board.push({name: initial, score: score})
-// score_board.sort((a, b) => b.score - a.score);
-// }
-
-
 // Variable for score_card
 let first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
 let second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
@@ -86,18 +81,12 @@ function start(){
 
 
         // Variables for test_card
-    let question_array=[question_set,question_set1,question_set2,question_set3,question_set4];
-    question_array.sort(()=>0.5 - Math.random());
-    let q_display = document.getElementById("questions").textContent = question_array[0].question;
-    let answer_a = document.getElementById("a").textContent = question_array[0].a;
-    let answer_b = document.getElementById("b").textContent = question_array[0].b;
-    let answer_c = document.getElementById("c").textContent = question_array[0].c;
-    let answer_d = document.getElementById("d").textContent = question_array[0].d;
-    let right_or_wrong = document.getElementById("right_or_wrong").textContent= "";
-        
+        question_array.sort(()=>0.5 - Math.random());
+        answered_qs= 0;
+        quiz()
 
     function count_down(){
-        time = 1;  
+        time = 60;  
         counter = document.getElementById("counter");
         clearInterval(timing)
         timing = setInterval(() => {
@@ -143,10 +132,11 @@ function show_name_entry(){
         first_place = document.getElementById("1st").textContent = `Name:${score_board[0].name}  Score:${score_board[0].score}`
         second_place = document.getElementById("2nd").textContent = `Name:${score_board[1].name}  Score:${score_board[1].score}`
         third_place = document.getElementById("3rd").textContent = `Name:${score_board[2].name}  Score:${score_board[2].score}`
+    
 
 };
 
-function submit_name_score(){
+function submit_name_score(score){
     let hide_score = document.querySelector('.score_card')
         hide_score.style.display = "block";
     let name_entry_show = document.querySelector('.name_card')
@@ -172,4 +162,41 @@ function sort_board(name_input){
 
         return score_board
 }
+    
 
+
+function quiz(answer){
+        
+    q_display = document.getElementById("questions").textContent = question_array[0].question;
+    answer_a = document.getElementById("a").textContent = question_array[0].a;
+    answer_b = document.getElementById("b").textContent = question_array[0].b;
+    answer_c = document.getElementById("c").textContent = question_array[0].c;
+    answer_d = document.getElementById("d").textContent = question_array[0].d;
+    right_or_wrong = document.getElementById("right_or_wrong");
+    
+    if(answer == question_array[0].answer){
+        right_or_wrong.textContent= "Correct";
+        correct++;
+        answered_qs++;
+        console.log(correct, answered_qs);
+    } else if (answer === undefined) {
+        right_or_wrong.textContent= "";
+    }else{
+        right_or_wrong.textContent= "Wrong";
+        answered_qs++;
+        console.log(answered_qs);
+    };
+    console.log(question_array.length)
+    if(answered_qs == question_array.length){
+        update_correct(correct);
+        show_name_entry();
+    }
+
+    
+
+};
+    
+function update_correct(new_correct){
+    correct = new_correct;
+};
+console.log(correct);
