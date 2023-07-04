@@ -53,6 +53,7 @@ body{
 
 #start{
     margin-top: 8%;
+    margin-bottom: 8%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -80,6 +81,7 @@ body{
 
 .score_card{
     display: none;
+    padding-top: 1%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -95,6 +97,7 @@ body{
 
 .name_card{
     display: none;
+    padding-top: 1%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,6 +131,3 @@ button:hover{
     background-color: brown;
 }
 
-#start{
-    margin-bottom: 1%;
-}
