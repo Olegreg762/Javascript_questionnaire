@@ -2,42 +2,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linked Style Sheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
 </head>
 <body>
     <header>
+        <!-- Section for Top of Page -->
         <section class="container">
             <h1 class="head">JavaScript Questionnaire!</h1>
+            <!-- Button for starting quiz -->
             <button id="start" onclick="start()">START</button>
+            <!-- Timer for quiz -->
             <h2 class="timer">Time <span id="counter">60</span></h2>
+            <!-- Button for showing Score Board -->
             <button id="scores" onclick="show_scores()">View High Scores</button>
         </section>
     </header>
     <section>
+        <!-- Card for Questions -->
         <quiz_card class="test_card">
+            <!-- Questions will display here -->
             <h2 id="questions">Q's go here</h2>
             <ul>
+                <!-- Button for each answer possibillties -->
                 <button type="button" onclick="quiz('a')" id="a"><span> Answer A </span></button><br>
                 <button type="button" onclick="quiz('b')" id="b"><span> Answer B </span></button><br>
                 <button type="button" onclick="quiz('c')" id="c"><span> Answer C </span></button><br>
                 <button type="button" onclick="quiz('d')" id="d"><span> Answer D </span></button><br>
+            <!-- Element for displaying if answer was correct or incorrect -->
             <p><span id="right_or_wrong"></span></p>
         </ul>
         </quiz_card>
+        <!-- Card for Score Board -->
         <score_card class="score_card">
             <ol>
+                <!-- Placeholders for scoreboard -->
                 <li id="1st"></li><br>
                 <li id="2nd"></li><br>
                 <li id="3rd"></li><br>
             </ol>
         </score_card>
+        <!-- Card for Name Entry -->
         <name_card class="name_card">
+            <!-- Name input textbox -->
             <input type="text" id="name_entry">Enter you Initials<br>
+            <!-- Button for submitting name -->
             <button id="name_submit" onclick="submit_name_score()">Submit Name</button>
         </name_card>
     </section>
-    
+    <!-- Linked Javascript -->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
