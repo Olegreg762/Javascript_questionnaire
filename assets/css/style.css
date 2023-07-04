@@ -1,10 +1,13 @@
 :root{
-    color:  aquamarine;
+    --text_colors: aquamarine;
+    --border_colors:rgb(37, 112, 87);
+    --card_colors:rgb(101, 30, 168);
+    color:  var(--text_colors);
 }
 
 a{
     text-decoration: none;
-    color: aquamarine;
+    color: var(--text_colors);
 }
 
 body{
@@ -23,7 +26,7 @@ body{
 }
 
 #scores{
-    color: aquamarine;
+    color: var(--text_colors);
     background: none;
     border: none;
     position: absolute;
@@ -66,11 +69,12 @@ body{
     transform: translate(-50%,-50%);
     width: 40%;
     height: 40%;
-    background-color: blueviolet;
+    background-color: var(--card_colors);
     border-radius: 10%;
-    border: 10pt solid hotpink;
+    border: 10pt solid var(--border_colors);
     #questions{
-        text-align: center;}
+        text-align: center;
+    }
    
 }
 
@@ -82,9 +86,9 @@ body{
     transform: translate(-50%,-50%);
     width: 40%;
     height: 25%;
-    background-color: blueviolet;
+    background-color: var(--card_colors);
     border-radius: 10%;
-    border: 10pt solid hotpink;
+    border: 10pt solid var(--border_colors);
     #scores{
         text-align: center;}
 }
@@ -97,15 +101,20 @@ body{
     transform: translate(-50%,-50%);
     width: 40%;
     height: 25%;
-    background-color: blueviolet;
+    background-color: var(--card_colors);
     border-radius: 10%;
-    border: 10pt solid hotpink;
+    border: 10pt solid var(--border_colors);
     #name_entry{
-        text-align: center;}
+        text-align: center;
+        max-width: 35px;
+        background-color: rgb(23, 92, 69);
+    }
 }
 
 button{
     background-color: tomato;
+    margin-top: 1%;
+    margin-bottom: 1%;
     color: black;
     text-align: center;
     text-decoration: none;
@@ -117,4 +126,8 @@ button{
 
 button:hover{
     background-color: brown;
+}
+
+#start{
+    margin-bottom: 1%;
 }

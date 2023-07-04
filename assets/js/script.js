@@ -11,15 +11,15 @@ let answer_d = "";
 let score_board = [
     {
       name: "GJS",
-      score: 20
+      score: 10
     },
     {
       name: "MJG",
-      score: 40
+      score: 20
     },
     {
       name: "GMS",
-      score: 60
+      score: 40
     }
   ];
   
@@ -135,10 +135,13 @@ function submit_name_score(){
         hide_score.style.display = "block";
     let name_entry_show = document.querySelector('.name_card')
         name_entry_show.style.display = "none";
-    let initial = document.getElementById("name_entry").value;
-    console.log(`${initial}initial, ${score}score, ${correct}correct`);
+    let initial = document.getElementById("name_entry").value.toUpperCase();
+    if(initial.length != 3){
+        alert("Enter Only 3 Letters");
+        show_name_entry()
+    } else{
         sort_board(initial)
-        
+    };   
 };
 
 function sort_board(name_input){
