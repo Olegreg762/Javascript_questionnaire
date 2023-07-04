@@ -1,30 +1,31 @@
+/* Sets some default styling */
 :root{
     --text_colors: aquamarine;
     --border_colors:rgb(37, 112, 87);
     --card_colors:rgb(101, 30, 168);
     color:  var(--text_colors);
 }
-
+/* Sets styling for a elements */
 a{
     text-decoration: none;
     color: var(--text_colors);
 }
-
+/* Background Color of page is set */
 body{
     background-color: black;
 }
-
+/* Sets how top of page is positioned */
 .container{
     position: relative;
 }
-
+/* Sets position off timer function  */
 .timer{
     position: absolute;
     top: 10;
     right: 20;
     font-size: large;
 }
-
+/* Sets the position of button that displays score board */
 #scores{
     color: var(--text_colors);
     background: none;
@@ -35,12 +36,12 @@ body{
     font-size: large;
     
 }
-
+/* blocks default action of button hover */
 #scores:hover{
     background: none;
 }
 
-
+/* Sets position of title */
 .head{
     margin-top: 8%;
     position: absolute;
@@ -50,7 +51,7 @@ body{
     text-align: center;
     font-size: 40pt;
 }
-
+/* Styling for start button */
 #start{
     margin-top: 8%;
     margin-bottom: 8%;
@@ -61,7 +62,7 @@ body{
     text-align: center;
     font-size: 20pt;
 }
-
+/* Styling and positioning for card containing questions */
 .test_card{
     display: none;
     position: absolute;
@@ -78,7 +79,7 @@ body{
     }
    
 }
-
+/* Sets the position and styling for score board card */
 .score_card{
     display: none;
     padding-top: 1%;
@@ -94,7 +95,7 @@ body{
     #scores{
         text-align: center;}
 }
-
+/* Styling and positioning for cart for entering name */
 .name_card{
     display: none;
     padding-top: 1%;
@@ -113,7 +114,7 @@ body{
         background-color: rgb(23, 92, 69);
     }
 }
-
+/* Defines styling for buttons on page */
 button{
     background-color: tomato;
     margin-top: 1%;
@@ -126,7 +127,7 @@ button{
     cursor: pointer;
 
 }
-
+/* Defines default actions for button hover */
 button:hover{
     background-color: brown;
 }
