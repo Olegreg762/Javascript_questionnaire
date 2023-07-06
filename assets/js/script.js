@@ -89,7 +89,7 @@ function start(){
         quiz();
     // Function for timer
     function count_down(){
-        time = 60;  
+        // time = 60;  
         counter = document.getElementById("counter");
         clearInterval(timing);
         timing = setInterval(() => {
@@ -119,6 +119,7 @@ function show_scores(){
 function show_name_entry(){
     display_hide_card( '.name_card', '.score_card', '.test_card');
     counter = document.getElementById("counter");
+    time = 60
     counter.textContent = time;
     clearInterval(timing);
 
@@ -160,6 +161,10 @@ function quiz(answer){
     }else{
         right_or_wrong.textContent= "Wrong";
         answered_qs++;
+        counter = document.getElementById("counter");
+        let time_subtract = time -= 15;
+        counter.textContent = time_subtract;
+        
     };
     if(answered_qs == question_array.length){
         update_correct(correct);
